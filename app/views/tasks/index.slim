@@ -1,0 +1,15 @@
+h1 Tasks
+ul
+  - @tasks.each do |task|
+    li.media: .media-body
+      h4.media-heading = task.name
+      p = task.description
+      p: dl.dl-horizontal
+        dt Owner
+        dd = task.user.email
+        dt State
+        dd = task.state
+        dt Created at
+        dd = task.created_at
+        dt Updated at
+        dd = task.updated_at
