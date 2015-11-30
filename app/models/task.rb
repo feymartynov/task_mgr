@@ -13,4 +13,8 @@ class Task < ActiveRecord::Base
       transition from: :started, to: :finished
     end
   end
+
+  def available_actions
+    self.class.state_machine.events.map(&:name).select { |a| send("can_#{a}?") }
+  end
 end

@@ -7,9 +7,18 @@ ul
       p: dl.dl-horizontal
         dt Owner
         dd = task.user.email
-        dt State
-        dd = task.state
         dt Created at
         dd = task.created_at
         dt Updated at
         dd = task.updated_at
+        dt State
+        dd = task.state
+        - if task.user == current_user && task.available_actions.any?
+          dt Actions
+          dd
+            - task.available_actions.each do |action|
+              = form_for task,
+                         url: public_send("#{action}_task_path", task),
+                         method: :post,
+                         class: 'form-inline' do
+                button.btn.btn-primary type='submit' = action.capitalize
