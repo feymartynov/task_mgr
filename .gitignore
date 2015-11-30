@@ -15,3 +15,5 @@
 # RVM
 .ruby-version
 .ruby-gemset
+
+.idea
