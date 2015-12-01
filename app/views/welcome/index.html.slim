@@ -1,6 +1,6 @@
 h1 Welcome to the task manager!
 
-.col-sm-6 = form_for :user, url: session_path(:user) do |f|
+.col-sm-6 = form_for :user, url: session_path(:user), html: { id: 'sign_in_form' } do |f|
   .form-group
     = f.label :email
     = f.email_field :email, autofocus: true, class: 'form-control'
