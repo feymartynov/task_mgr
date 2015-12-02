@@ -1,5 +1,10 @@
 h1 Welcome to the task manager!
 
+- if flash[:alert]
+  .alert.alert-dismissable.alert-danger
+    button.close type='button' data-dismiss='alert': span &times;
+    = flash[:alert]
+
 .col-sm-6 = form_for :user, url: session_path(:user), html: { id: 'sign_in_form' } do |f|
   .form-group
     = f.label :email

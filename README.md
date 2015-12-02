@@ -4,5 +4,5 @@
 Here is the demo deployed on Heroku: https://secure-sea-6145.herokuapp.com
 
 Use the following credentials to sign in:
-Email: `joe@xample.com`
+Email: `joe@example.com`
 Password: `qwerty123`

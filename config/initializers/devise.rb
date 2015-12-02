@@ -259,4 +259,18 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  class CustomFailure < Devise::FailureApp
+    def redirect_url
+      root_path
+    end
+
+    def respond
+      http_auth? ? http_auth : redirect
+    end
+  end
+
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
 end
